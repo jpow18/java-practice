@@ -7,8 +7,9 @@
 public class Practice
 {
     public static void main(String[] args) {
-        String name = "James Pow";
-        name = name.toUpperCase();
-        System.out.println(name);
+        String string1 = new String("abc");
+        String string2 = new String("abc");
+        
+        System.out.println(string1.equals(string2));
     }
 }
