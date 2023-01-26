@@ -7,9 +7,10 @@
 public class Practice
 {
     public static void main(String[] args) {
-        String string1 = new String("abc");
-        String string2 = new String("ABC");
-        
-        System.out.println(string1.equalsIgnoreCase(string2));
+        String string = "The sky is orange";
+        System.out.println(string.replace("orange", "purple"));
+        System.out.println(string);
+
     }
+
 }
