@@ -22,5 +22,6 @@ public class ComputeAreaOfCircle
         double area = radius * radius * 3.14159;
         // display result
         System.out.printf("The area for a circle of radius %.1f is %.5f.\n",radius,area);
+        input.close();
     }
 }
