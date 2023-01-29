@@ -6,6 +6,7 @@ public class ComputeAreaOfCircle
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         double radius = 0;
+        final double PI = 3.14159;
         // catch the error produced if user doesn't enter a double
         while (true) {
             try {
