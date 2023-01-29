@@ -15,6 +15,6 @@ public class ShowCurrentTime
         long currentHour = (int) (totalHours % 24);
         
         // print current time in HH:MM:SS format
-        System.out.printf("Current time is: %d:%d:%d", currentHour, currentMinute, currentSecond);
+        System.out.printf("Current time is: %d:%d:%d GMT", currentHour, currentMinute, currentSecond);
     }
 }
