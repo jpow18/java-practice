@@ -32,6 +32,17 @@ public class JamesPowProj02
                 input.next();
             }
         }
+        int numQuarters = moneyAmount / QUARTERS;
+        int remainingChange = moneyAmount % QUARTERS;
+        int numDimes = remainingChange / DIMES;
+        remainingChange = remainingChange % DIMES;
+        int numNickels = remainingChange / NICKELS;
+        remainingChange = remainingChange % NICKELS;
+        // Any amount left in remainingChange is the number of pennies
         
+        // print results
+        System.out.printf("You have change %d cents. That is:\n" +
+        "%d quarters\n%d dimes\n%d nickels\n%d pennies", moneyAmount, 
+        numQuarters, numDimes, numNickels, remainingChange);
     }
 }
