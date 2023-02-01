@@ -7,16 +7,16 @@
  */
 import java.util.Scanner;
 import java.util.InputMismatchException;
-
+import java.util.Random;
 public class JamesPowProj02
 {
     public static void main (String[] args) {
+        // create new instance of scanner class
         Scanner input = new Scanner(System.in);
-        final int QUARTERS = 25;
-        final int DIMES = 10;
-        final int NICKELS = 5;
+        
+        // This variable holds total amount of change
         int moneyAmount = 0;
-        while (true) {
+        /*while (true) {
             try {
                 do { // catch any invalid integer input
                     System.out.print("Enter a change between 1 and 99 cents: ");
@@ -31,7 +31,18 @@ public class JamesPowProj02
                 System.out.println("Invalid input. Please enter an integer.");
                 input.next();
             }
-        }
+        }*/
+        
+        // create new instance of a Random object
+        Random random = new Random();
+        
+        // declare constants to clarify meaning of code
+        final int QUARTERS = 25;
+        final int DIMES = 10;
+        final int NICKELS = 5;
+        
+        // generate a random number between 1 and 99 inclusive
+        moneyAmount = random.nextInt(100);
         int numQuarters = moneyAmount / QUARTERS;
         int remainingChange = moneyAmount % QUARTERS;
         int numDimes = remainingChange / DIMES;
