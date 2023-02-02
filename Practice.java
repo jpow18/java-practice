@@ -4,13 +4,18 @@
  *
  * @author James Pow
  */
+import java.util.Scanner;
 public class Practice
 {
     public static void main(String[] args) {
-        String string = "The sky is orange";
-        System.out.println(string.replace("orange", "purple"));
-        System.out.println(string.contains("blue"));
-
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("What is your name?");
+        String name = scanner.nextLine();
+        
+        System.out.println(name);
+        
+        scanner.close();
     }
 
 }
