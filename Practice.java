@@ -9,7 +9,7 @@ public class Practice
     public static void main(String[] args) {
         String string = "The sky is orange";
         System.out.println(string.replace("orange", "purple"));
-        System.out.println(string);
+        System.out.println(string.contains("blue"));
 
     }
 
