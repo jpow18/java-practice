@@ -9,19 +9,14 @@ import java.util.Arrays;
 public class Practice
 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int numbers[] = {1,4,5,6,7,8,10, 1235,1235,2436,82345,};
         
-        char vowels[] = {'a', 'z', 'a', 'v', '1', 'a', 'f', '4', 'b', '-','5'};
-        System.out.println((Arrays.toString(vowels)));
-
-        Arrays.sort(vowels);
-        int foundItemIndex = Arrays.binarySearch(vowels, '5');
+        int copyOfNumbers[] = Arrays.copyOf(numbers, 7);
         
-        System.out.println((Arrays.toString(vowels)));
-        System.out.println(foundItemIndex);
-        Arrays.fill(vowels, '4');
-        System.out.println(Arrays.toString(vowels));
-        scanner.close();
+        Arrays.fill(numbers, 19);
+        
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(Arrays.toString(copyOfNumbers));
     }
 
 }
