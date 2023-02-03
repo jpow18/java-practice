@@ -11,7 +11,7 @@ public class Practice
     public static void main(String[] args) {
         int numbers[] = {1,4,5,6,7,8,10, 1235,1235,2436,82345,};
         
-        int copyOfNumbers[] = Arrays.copyOf(numbers, 7);
+        int copyOfNumbers[] = Arrays.copyOfRange(numbers, 7, numbers.length);
         
         Arrays.fill(numbers, 19);
         
