@@ -19,6 +19,8 @@ public class Practice
         
         System.out.println((Arrays.toString(vowels)));
         System.out.println(foundItemIndex);
+        Arrays.fill(vowels, '4');
+        System.out.println(Arrays.toString(vowels));
         scanner.close();
     }
 
