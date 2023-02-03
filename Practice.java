@@ -12,6 +12,7 @@ public class Practice
         Scanner scanner = new Scanner(System.in);
         
         char vowels[] = {'a', '3', 'a', 'v'};
+        Arrays.sort(vowels);
         System.out.println((Arrays.toString(vowels)));
         scanner.close();
     }
