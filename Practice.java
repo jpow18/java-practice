@@ -9,14 +9,30 @@ import java.util.Arrays;
 public class Practice
 {
     public static void main(String[] args) {
-        int numbers[] = {1,4,5,6,7,8,10, 1235,1235,2436,82345,};
+        Scanner scanner = new Scanner(System.in);
         
-        int copyOfNumbers[] = Arrays.copyOfRange(numbers, 7, numbers.length);
+        int numbers[] = new int[5];    
+        int numbers2[] = new int[5];
         
-        Arrays.fill(numbers, 19);
-        
-        System.out.println(Arrays.toString(numbers));
-        System.out.println(Arrays.toString(copyOfNumbers));
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Please enter an integer for array1: ");
+            numbers[i] = scanner.nextInt();
+            // Clean up buffer by removing leftover newline
+            scanner.nextLine();
+            System.out.print("Please enter an integer for array2: ");
+            numbers2[i] = scanner.nextInt();
+            // Clean up buffer by removing leftover newline
+            scanner.nextLine();
+        }
+        // Arrays.equals compares the conents of two arrays
+        if (Arrays.equals(numbers, numbers2)) {
+            System.out.println("The two arrays have identical contents");
+        } else if (numbers == numbers2) {
+            System.out.println("The two arrays have identical memory addresses");
+        } else {
+            System.out.println("The two arrays are not identical" +
+            " in any way.");
+       }
     }
 
 }
