@@ -4,35 +4,31 @@
  *
  * @author James Pow
  */
-import java.util.Scanner;
-import java.util.Arrays;
+import java.util.ArrayList;
+
 public class Practice
 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
         
-        int numbers[] = new int[5];    
-        int numbers2[] = new int[5];
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
         
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Please enter an integer for array1: ");
-            numbers[i] = scanner.nextInt();
-            // Clean up buffer by removing leftover newline
-            scanner.nextLine();
-            System.out.print("Please enter an integer for array2: ");
-            numbers2[i] = scanner.nextInt();
-            // Clean up buffer by removing leftover newline
-            scanner.nextLine();
-        }
-        // Arrays.equals compares the conents of two arrays
-        if (Arrays.equals(numbers, numbers2)) {
-            System.out.println("The two arrays have identical contents");
-        } else if (numbers == numbers2) {
-            System.out.println("The two arrays have identical memory addresses");
-        } else {
-            System.out.println("The two arrays are not identical" +
-            " in any way.");
-       }
+        System.out.println(numbers.toString()); 
+        System.out.println(numbers.get(2)); // get item by index
+        
+        numbers.add(100); // Add by value
+        numbers.remove(2); // remove item by index
+        System.out.println(numbers.toString());
+        
+        numbers.add(4);
+        numbers.remove(Integer.valueOf(4)); // Remove first occurence of that value
+        System.out.println(numbers);
+        
+        numbers.clear(); // Clear the entire list
     }
 
 }
