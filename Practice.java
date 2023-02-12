@@ -5,7 +5,7 @@
  * @author James Pow
  */
 import java.util.ArrayList;
-
+import java.util.Comparator;
 public class Practice
 {
     public static void main(String[] args) {
@@ -30,7 +30,13 @@ public class Practice
         
         //numbers.clear(); // Clear the entire list
         
-        numbers.set(2, Integer.valueOf(99));
+        numbers.set(2, Integer.valueOf(99)); // place value 99 at index 2
+        
+        numbers.sort(Comparator.naturalOrder()); // Sort by ascending value
+        numbers.sort(Comparator.reverseOrder()); // Sort in reverse
+        
+        
+        System.out.println(numbers);
     }
 
 }
