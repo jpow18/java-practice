@@ -28,7 +28,9 @@ public class Practice
         numbers.remove(Integer.valueOf(4)); // Remove first occurence of that value
         System.out.println(numbers);
         
-        numbers.clear(); // Clear the entire list
+        //numbers.clear(); // Clear the entire list
+        
+        numbers.set(2, Integer.valueOf(99));
     }
 
 }
