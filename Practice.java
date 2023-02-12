@@ -35,7 +35,11 @@ public class Practice
         numbers.sort(Comparator.naturalOrder()); // Sort by ascending value
         numbers.sort(Comparator.reverseOrder()); // Sort in reverse
         
+        int arrayListLength = numbers.size(); // Obvious
         
+        // Returns true if the value is there
+        System.out.println(numbers.contains(Integer.valueOf(969))); 
+        System.out.println(numbers.isEmpty()); // Checks if array is empty
         System.out.println(numbers);
     }
 
