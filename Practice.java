@@ -14,9 +14,12 @@ public class Practice
         examScores.put("English", 52);
         examScores.put("History", 51);
         
-        examScores.putIfAbsent("Math", 70);
+        //examScores.putIfAbsent("Math", 70);
         
-        System.out.println("Your math score is: " + examScores.get("Math"));
+        //examScores.replace("Math", 2); // Replace value associated with key
+        
+        System.out.println("Your Physics score is: " + 
+        examScores.getOrDefault("Physics", -1));
     }
 
 }
