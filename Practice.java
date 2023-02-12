@@ -14,7 +14,7 @@ public class Practice
         examScores.put("English", 52);
         examScores.put("History", 51);
         
-        System.out.println(examScores.toString());
+        System.out.println("Your math score is: " + examScores.get("Math"));
     }
 
 }
