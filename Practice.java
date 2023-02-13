@@ -4,36 +4,17 @@
  *
  * @author James Pow
  */
-import java.util.HashMap;
-
+import java.time.LocalDate;
 public class Practice
 {
     public static void main(String[] args) {
-        HashMap<String, Integer> examScores = new HashMap<String, Integer>();
-        examScores.put("Math", 75);
-        examScores.put("English", 52);
-        examScores.put("History", 51);
+        User youngerUser = new User();
         
+        youngerUser.name = "James Pow";
+        youngerUser.birthday = LocalDate.parse("1995-01-31");
         
-        examScores.forEach((subject, score) -> {
-            examScores.replace(subject, score - 10);
-            //System.out.println(subject + " - " + score);
-        });
-        //examScores.putIfAbsent("Math", 70);
-        
-        //examScores.replace("Math", 2); // Replace value associated with key
-        
-        //examScores.remove("History"); // Clears key/value
-        System.out.println(examScores);
-        //examScores.clear(); // Clears contents
-        
-        //System.out.println(examScores.containsKey("Math")); // returns bool
-        //System.out.println(examScores.containsValue(Integer.valueOf(52))); // returns bool
-
-        //System.out.println(examScores.size());
-        //System.out.println(examScores.isEmpty());
-        //System.out.println("Your Physics score is: " + 
-        //examScores.getOrDefault("Physics", -1));
+        System.out.printf("%s was born back in %s and he is now %d years old.",
+        youngerUser.name, youngerUser.birthday, youngerUser.age());
     }
 
 }
