@@ -4,5 +4,6 @@ public class MathDemo
         System.out.println(Math.cos(Math.PI / 6));
         System.out.println(Math.toRadians(30));
         System.out.println(Math.toDegrees(0.52));
+        System.out.println(Math.toDegrees(1));
     }
 }
