@@ -6,19 +6,18 @@
  * James Pow
  * 2/21/23
  */
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class JamesPowProj5
 {
     public static void main(String[] args) {
+        int principle;
+        int termLength;
+        double interestRate;
+        Scanner input = new Scanner(System.in);
         // Loop to allow user to repeat the program
-        while (true) {
-            int principle;
-            int termLength;
-            double interestRate;
-            Scanner input = new Scanner(System.in);
-            
+        while (true) {            
             // Loops to ensure user enters valid data
             while (true) {
                 try { // try/catch for principle
@@ -55,23 +54,40 @@ public class JamesPowProj5
                 }
             }
             
-            System.out.printf("Payment: $%.2f", monthlyPayment(principle, termLength, interestRate));
+            // Instantiate new object of MortgageCalculator class
+            MortgageCalculator mortgage = new MortgageCalculator(
+            principle, termLength, interestRate);
+            
+            System.out.printf("Payment: $%.2f", mortgage.monthlyPayment());
             break;
         }
         
     }
     
+}
+
+class MortgageCalculator{
+    private int principle;
+    private int termLength;
+    private double interestRate;
     
-    public static double monthlyPayment(int principle, int term,
+    // Constructor
+    public MortgageCalculator(int principle,int termLength,
     double interestRate) {
-        interestRate = interestRate / 12;
-        term = term * 12;
+        this.principle = principle;
+        this.termLength = termLength;
+        this.interestRate = interestRate;
+    }
+    
+    // Calculate monthly payment
+    public double monthlyPayment() {
+        double interestRate = this.interestRate / 12;
+        int term = this.termLength * 12;
         
-        double monthlyPayment = (((principle * interestRate) * 
+        double monthlyPayment = (((this.principle * interestRate) * 
         (Math.pow(1 + interestRate, term))) / 
         ((Math.pow(1 + interestRate, term)) - 1));
         
         return monthlyPayment;
-        
     }
 }
