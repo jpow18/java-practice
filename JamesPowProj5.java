@@ -59,6 +59,8 @@ public class JamesPowProj5
             principle, termLength, interestRate);
             
             System.out.printf("Payment: $%.2f", mortgage.monthlyPayment());
+            System.out.printf("Balance after month 2: %.2f", 
+            mortgage.balanceEndOfMonth(2));
             break;
         }
         
@@ -70,24 +72,32 @@ class MortgageCalculator{
     private int principle;
     private int termLength;
     private double interestRate;
+    private double balance;
+    private double interestPaid;
     
     // Constructor
     public MortgageCalculator(int principle,int termLength,
     double interestRate) {
         this.principle = principle;
-        this.termLength = termLength;
-        this.interestRate = interestRate;
+        this.balance = principle;
+        this.termLength = termLength * 12;
+        this.interestRate = interestRate / 12;
     }
     
     // Calculate monthly payment
-    public double monthlyPayment() {
-        double interestRate = this.interestRate / 12;
-        int term = this.termLength * 12;
-        
-        double monthlyPayment = (((this.principle * interestRate) * 
-        (Math.pow(1 + interestRate, term))) / 
-        ((Math.pow(1 + interestRate, term)) - 1));
+    public double monthlyPayment() {      
+        double monthlyPayment = (((this.principle * this.interestRate) * 
+        (Math.pow(1 + this.interestRate, this.termLength))) / 
+        ((Math.pow(1 + this.interestRate, this.termLength)) - 1));
         
         return monthlyPayment;
+    }
+    
+    public double balanceEndOfMonth(int month) {
+        this.balance = 
+        ((Math.pow(1 + this.interestRate, month) * this.principle) -
+        (((Math.pow(1 + this.interestRate, month) - 1) * this.monthlyPayment())
+        / this.interestRate));
+        return this.balance;
     }
 }
