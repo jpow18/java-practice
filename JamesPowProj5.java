@@ -15,9 +15,11 @@ public class JamesPowProj5
         int principle;
         int termLength;
         double interestRate;
+        char repeat = 'Y';
         Scanner input = new Scanner(System.in);
+        
         // Loop to allow user to repeat the program
-        while (true) {            
+        while (repeat == 'Y') {            
             // Loops to ensure user enters valid data
             while (true) {
                 try { // try/catch for principle
@@ -58,12 +60,12 @@ public class JamesPowProj5
             MortgageCalculator mortgage = new MortgageCalculator(
             principle, termLength, interestRate);
             
-            System.out.printf("Payment: $%.2f", mortgage.monthlyPayment());
-            System.out.printf("Balance after month 2: %.2f", 
-            mortgage.balanceEndOfMonth(2));
-            break;
+            
+            
+            System.out.print("Would you like to calculate another " +
+            "mortgage? Y/N ");
+            repeat = input.nextLine().charAt(0);
         }
-        
     }
     
 }
@@ -86,9 +88,9 @@ class MortgageCalculator{
     
     // Calculate monthly payment
     public double monthlyPayment() {      
-        double monthlyPayment = (((this.principle * this.interestRate) * 
+        double monthlyPayment = ((this.principle * this.interestRate) * 
         (Math.pow(1 + this.interestRate, this.termLength))) / 
-        ((Math.pow(1 + this.interestRate, this.termLength)) - 1));
+        ((Math.pow(1 + this.interestRate, this.termLength)) - 1);
         
         return monthlyPayment;
     }
@@ -99,5 +101,10 @@ class MortgageCalculator{
         (((Math.pow(1 + this.interestRate, month) - 1) * this.monthlyPayment())
         / this.interestRate));
         return this.balance;
+    }
+    
+    public double totalInterestPaid(int month) {
+        return (this.monthlyPayment() * month) - 
+        (this.principle - this.balanceEndOfMonth(month));
     }
 }
