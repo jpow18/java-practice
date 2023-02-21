@@ -60,12 +60,25 @@ public class JamesPowProj5
             MortgageCalculator mortgage = new MortgageCalculator(
             principle, termLength, interestRate);
             
+            // Store payment amount in variable to minimize method
+            // calls in the loop
+            double monthlyPayment = mortgage.monthlyPayment();
+            
+            System.out.println("Month\t Payment\t Total Interest\t" + 
+            "Balance");
+            // For loop to calculate and output information
+            for (int month = 1; month < termLength * 12; month++) {
+                System.out.printf("%d\t %.2f\t %.2f\t %.2f\n",
+                month, monthlyPayment, mortgage.totalInterestPaid(month),
+                mortgage.balanceEndOfMonth(month));
+            }
             
             
             System.out.print("Would you like to calculate another " +
             "mortgage? Y/N ");
             repeat = input.nextLine().charAt(0);
         }
+        System.out.println("\nHope you found this useful! Goodbye!");
     }
     
 }
