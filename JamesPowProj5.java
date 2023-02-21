@@ -15,11 +15,11 @@ public class JamesPowProj5
         int principle;
         int termLength;
         double interestRate;
-        char repeat = 'Y';
+        char repeat = 'y';
         Scanner input = new Scanner(System.in);
         
         // Loop to allow user to repeat the program
-        while (repeat == 'Y') {            
+        while (repeat == 'y') {            
             // Loops to ensure user enters valid data
             while (true) {
                 try { // try/catch for principle
@@ -63,20 +63,48 @@ public class JamesPowProj5
             // Store payment amount in variable to minimize method
             // calls in the loop
             double monthlyPayment = mortgage.monthlyPayment();
-            
-            System.out.println("Month\t Payment\t Total Interest\t" + 
-            "Balance");
+            int month;
+            System.out.println("Month   Payment   Total Interest   Balance");
             // For loop to calculate and output information
-            for (int month = 1; month < termLength * 12; month++) {
-                System.out.printf("%d\t %.2f\t %.2f\t %.2f\n",
-                month, monthlyPayment, mortgage.totalInterestPaid(month),
-                mortgage.balanceEndOfMonth(month));
-            }
+            /*for (month = 1; month <= termLength * 12; month++) {
+                if (month <= 5) { // Ensure proper formatting
+                    System.out.printf("   %d    $%.2f    $%.2f       $%.2f\n",
+                    month, monthlyPayment, mortgage.totalInterestPaid(month),
+                    mortgage.balanceEndOfMonth(month));
+                } else if (month < 10) {
+                    System.out.printf("   %d    $%.2f    $%.2f      $%.2f\n",
+                    month, monthlyPayment, mortgage.totalInterestPaid(month),
+                    mortgage.balanceEndOfMonth(month));
+                } else {
+                    System.out.printf("  %d    $%.2f    $%.2f      $%.2f\n",
+                    month, monthlyPayment, mortgage.totalInterestPaid(month),
+                    mortgage.balanceEndOfMonth(month));
+                }
+            }*/
             
+            // While loop to calculate and output information
+            month = 1;
+            while (month <= termLength * 12) {
+                if (month <= 5) { // Ensure proper formatting
+                    System.out.printf("   %d    $%.2f    $%.2f       $%.2f\n",
+                    month, monthlyPayment, mortgage.totalInterestPaid(month),
+                    mortgage.balanceEndOfMonth(month));
+                } else if (month < 10) {
+                    System.out.printf("   %d    $%.2f    $%.2f      $%.2f\n",
+                    month, monthlyPayment, mortgage.totalInterestPaid(month),
+                    mortgage.balanceEndOfMonth(month));
+                } else {
+                    System.out.printf("  %d    $%.2f    $%.2f      $%.2f\n",
+                    month, monthlyPayment, mortgage.totalInterestPaid(month),
+                    mortgage.balanceEndOfMonth(month));
+                }
+                month++;
+            }
             
             System.out.print("Would you like to calculate another " +
             "mortgage? Y/N ");
             repeat = input.nextLine().charAt(0);
+            repeat = Character.toLowerCase(repeat);
         }
         System.out.println("\nHope you found this useful! Goodbye!");
     }
